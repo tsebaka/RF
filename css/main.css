@@ -6,16 +6,16 @@ body {
 	background-color: #060606;
 	color: #FFFFFF;
 	font-family: Futura, sans-serif;
-	font-size: 16pt;
+	font-size: 14pt;
 }
 
 section {
-	height: 85vh;
+	height: 70vh;
 	display: flex;
 }
 
 h1 {
-	font-size: 92pt;
+	font-size: 81pt;
 	text-align: center;
 }
 
