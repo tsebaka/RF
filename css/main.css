@@ -10,12 +10,12 @@ body {
 }
 
 section {
-	height: 70vh;
+	height: 82vh;
 	display: flex;
 }
 
 h1 {
-	font-size: 86pt;
+	font-size: 92pt;
 	text-align: center;
 }
 
@@ -51,19 +51,7 @@ a {
 
 #other, #contacts { color: #F05A5A; }
 
-#ADALINE-HOME {
-	padding: 1em;
-}
-
-@media (max-width: 767px) {
-	body {
-		font-size: 12pt;
-	}
-	.sections {
-		text-align: center;
-		display: inline;
-	}
-}
+#ADALINE-HOME { padding: 1em; }
 
 #canvas {
   position: absolute;
