@@ -10,12 +10,12 @@ body {
 }
 
 section {
-	height: 82vh;
+	height: 70vh;
 	display: flex;
 }
 
 h1 {
-	font-size: 92pt;
+	font-size: 86pt;
 	text-align: center;
 }
 
