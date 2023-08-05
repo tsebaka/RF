@@ -106,16 +106,27 @@ function loop(){
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    let text = document.querySelector('h1').innerText;
+    let text = Array.from(document.querySelector('h1').innerText);
     let index = 0;
 
+    // Заменяем текст на отдельные span элементы для каждой буквы
+    document.querySelector('h1').innerHTML = text.map((char) => `<span>${char}</span>`).join('');
+
+    // Получаем все span элементы
+    let spans = document.querySelectorAll('h1 span');
+
     setInterval(function() {
-        let newText = text.split('');
-        if (newText[index] !== ' ') {
-            newText[index] = newText[index] === '' ? text[index] : '';
-            document.querySelector('h1').innerText = newText.join('');
+        // Удаляем класс 'invisible' у текущего span элемента
+        spans[index].classList.remove('invisible');
+
+        // Переходим к следующему span элементу, пропуская пробелы
+        index = (index + 1) % spans.length;
+        while (spans[index].innerText === ' ') {
+            index = (index + 1) % spans.length;
         }
-        index = (index + 1) % newText.length;
+
+        // Добавляем класс 'invisible' к следующему span элементу
+        spans[index].classList.add('invisible');
     }, 1000);
 });
 
