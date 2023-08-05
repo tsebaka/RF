@@ -105,18 +105,19 @@ function loop(){
   }
 }
 
-let text = document.querySelector('h1').innerText;
-let index = 0;
+window.onload = function() {
+    let text = document.querySelector('h1').innerText;
+    let index = 0;
 
-setInterval(function() {
-    let newText = text.split('');
-    if (newText[index] === ' ') {
+    setInterval(function() {
+        let newText = text.split('');
+        if (newText[index] !== ' ') {
+            newText[index] = newText[index] === '' ? text[index] : '';
+            document.querySelector('h1').innerText = newText.join('');
+        }
         index = (index + 1) % newText.length;
-    }
-    newText[index] = newText[index] === ' ' ? ' ' : '';
-    document.querySelector('h1').innerText = newText.join('');
-    index = (index + 1) % newText.length;
-}, 1000);
+    }, 1000);
+};
 
 
 const canvasBody = document.getElementById("canvas"),
