@@ -107,28 +107,32 @@ function loop(){
 
 document.addEventListener("DOMContentLoaded", function() {
     let text = Array.from(document.querySelector('h1').innerText);
-    let index = 0;
 
     // Заменяем текст на отдельные span элементы для каждой буквы
     document.querySelector('h1').innerHTML = text.map((char) => `<span>${char}</span>`).join('');
 
     // Получаем все span элементы
-    let spans = document.querySelectorAll('h1 span');
+    let spans = Array.from(document.querySelectorAll('h1 span'));
+
+    // Фильтруем список, чтобы оставить только span элементы без пробелов
+    let nonSpaceSpans = spans.filter(span => span.innerText !== ' ');
+
+    // Выбираем случайный span элемент для начала
+    let index = Math.floor(Math.random() * nonSpaceSpans.length);
+    nonSpaceSpans[index].classList.add('invisible');
 
     setInterval(function() {
         // Удаляем класс 'invisible' у текущего span элемента
-        spans[index].classList.remove('invisible');
+        nonSpaceSpans[index].classList.remove('invisible');
 
-        // Переходим к следующему span элементу, пропуская пробелы
-        index = (index + 1) % spans.length;
-        while (spans[index].innerText === ' ') {
-            index = (index + 1) % spans.length;
-        }
+        // Выбираем новый случайный индекс
+        index = Math.floor(Math.random() * nonSpaceSpans.length);
 
-        // Добавляем класс 'invisible' к следующему span элементу
-        spans[index].classList.add('invisible');
+        // Добавляем класс 'invisible' к новому span элементу
+        nonSpaceSpans[index].classList.add('invisible');
     }, 1000);
 });
+
 
 
 const canvasBody = document.getElementById("canvas"),
