@@ -60,3 +60,7 @@ a {
   left: 0;
   z-index: -1;
 }
+
+.invisible {
+    color: transparent;
+}
