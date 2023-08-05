@@ -105,7 +105,7 @@ function loop(){
   }
 }
 
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function() {
     let text = document.querySelector('h1').innerText;
     let index = 0;
 
@@ -117,7 +117,7 @@ window.onload = function() {
         }
         index = (index + 1) % newText.length;
     }, 1000);
-};
+});
 
 
 const canvasBody = document.getElementById("canvas"),
